@@ -5,7 +5,7 @@ const Menu = () => {
             <div className={"flex justify-center items-center"}>
                 <img src={Logo} alt="Logo" />
             </div>
-            <div className={"flex items-center gap-8"}>
+            <div className={"hidden sm:flex items-center gap-8"}>
                 <a href={"/collections"} className={"text-grey-500 text-preset-4 leading-preset-4"}>Collections</a>
                 <a href={"/men"} className={"text-grey-500 text-preset-4 leading-preset-4"}>Men</a>
                 <a href={"/women"} className={"text-grey-500 text-preset-4 leading-preset-4"}>Women</a>

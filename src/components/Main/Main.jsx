@@ -3,7 +3,7 @@ import ProductImageSection from "./ProductImageSection.jsx";
 
 const Main = () => {
     return (
-        <main className={"flex items-center gap-32"}>
+        <main className={"flex flex-col md:flex-row items-center gap-12 md:gap-32"}>
                 <ProductImageSection/>
                 <ProductDescriptionSection/>
         </main>
