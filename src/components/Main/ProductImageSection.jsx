@@ -29,27 +29,36 @@ const ProductImageSection = () => {
         }
         ];
 
-    const [productImage, setProductImage] = useState(PRODUCT_IMG_THUMBNAILS[0]);
-    const handleOpenProductImage = (img) => {
-        setProductImage(img);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const productImage = PRODUCT_IMG_THUMBNAILS[currentIndex]
+    const handleOpenProductImage = (index) => {
+        setCurrentIndex(index);
+    }
+
+    const handleNext = () => {
+        setCurrentIndex(prev => prev === PRODUCT_IMG_THUMBNAILS.length - 1 ? 0 : (prev + 1))
+    }
+
+    const handlePrevious = () => {
+        setCurrentIndex(prev => prev === 0 ? (PRODUCT_IMG_THUMBNAILS.length - 1) : (prev - 1))
     }
     return (
         <div className={"flex flex-col gap-8"}>
             <div className={"md:max-w-md w-full relative"}>
                 <img src={productImage.img} alt={productImage.title} className={"rounded-5 w-full"}/>
                 <div className={"absolute inset-0 flex items-center md:hidden justify-between px-4"}>
-                    <button type={"button"} aria-label={"click to view previous product img"} className={"flex justify-center items-center w-10 h-10 shrink-0 bg-white rounded-20"}>
+                    <button onClick={handlePrevious} type={"button"} aria-label={"click to view previous product img"} className={"flex justify-center items-center w-10 h-10 shrink-0 bg-white rounded-20"}>
                         <img src={PreviousIcon} alt={"previous"}/>
                     </button>
 
-                    <button type={"button"} aria-label={"click to view next product img"} className={"flex justify-center items-center w-10 h-10 shrink-0 bg-white rounded-20"}>
+                    <button onClick={handleNext} type={"button"} aria-label={"click to view next product img"} className={"flex justify-center items-center w-10 h-10 shrink-0 bg-white rounded-20"}>
                         <img src={NextIcon} alt={"next"}/>
                     </button>
                 </div>
             </div>
             <div className={"hidden md:flex gap-8"}>
-                {PRODUCT_IMG_THUMBNAILS.map((img) =>
-                    <button key={img.id} aria-label={"click to view product image"} aria-labelledby={img.title} type={"button"} onClick={() => handleOpenProductImage(img)} className={`${productImage.id === img.id ? "opacity-75 ring-2 ring-orange-500" : ""} rounded-10 w-22 h-22`}>
+                {PRODUCT_IMG_THUMBNAILS.map((img, index) =>
+                    <button key={img.id} aria-label={"click to view product image"} aria-labelledby={img.title} type={"button"} onClick={() => handleOpenProductImage(index)} className={`${currentIndex === index ? "opacity-75 ring-2 ring-orange-500" : ""} rounded-10 w-22 h-22`}>
                         <img id={img.title} src={img.imgThumbnail} alt={img.title} className={"rounded-10"}/>
                     </button>
                 )}
