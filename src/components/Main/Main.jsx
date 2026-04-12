@@ -1,5 +1,5 @@
 import ProductDescriptionSection from "./ProductDescription/ProductDescriptionSection.jsx";
-import ProductImageSection from "./ProductImageSection.jsx";
+import ProductImageSection from "./ProductImage/ProductImageSection.jsx";
 
 const Main = () => {
     return (

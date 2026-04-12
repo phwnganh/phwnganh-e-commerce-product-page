@@ -1,6 +1,7 @@
 import {useState} from "react";
-import PreviousIcon from '../../assets/icon-previous.svg'
-import NextIcon from '../../assets/icon-next.svg'
+import PreviousIcon from '../../../assets/icon-previous.svg'
+import NextIcon from '../../../assets/icon-next.svg'
+import ProductImageDetail from "./ProductImageDetail.jsx";
 const ProductImageSection = ({products}) => {
     const PRODUCT_IMG_THUMBNAILS = [
         {
@@ -31,8 +32,17 @@ const ProductImageSection = ({products}) => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const productImage = PRODUCT_IMG_THUMBNAILS[currentIndex]
+    const [openImageDetail, setOpenImageDetail] = useState(false)
     const handleOpenProductImage = (index) => {
         setCurrentIndex(index);
+    }
+
+    const handleOpenProductImageDetail = () => {
+        setOpenImageDetail(true)
+    }
+
+    const handleCloseProductImageDetail = () => {
+        setOpenImageDetail(false)
     }
 
     const handleNext = () => {
@@ -45,7 +55,9 @@ const ProductImageSection = ({products}) => {
     return (
         <div className={"flex flex-col gap-8"}>
             <div className={"md:max-w-md w-full relative"}>
+                <button type={"button"} onClick={handleOpenProductImageDetail}>
                 <img src={productImage.img} alt={productImage.title} className={"rounded-5 w-full"}/>
+                </button>
                 <div className={"absolute inset-0 flex items-center md:hidden justify-between px-4"}>
                     <button onClick={handlePrevious} type={"button"} aria-label={"click to view previous product img"} className={"flex justify-center items-center w-10 h-10 shrink-0 bg-white rounded-20"}>
                         <img src={PreviousIcon} alt={"previous"}/>
@@ -63,6 +75,10 @@ const ProductImageSection = ({products}) => {
                     </button>
                 )}
             </div>
+            {openImageDetail && <ProductImageDetail productImgs={PRODUCT_IMG_THUMBNAILS}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+            onClose={handleCloseProductImageDetail}/>}
         </div>
     );
 };
