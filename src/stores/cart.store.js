@@ -22,7 +22,7 @@ export const useCartStore = create(
                             item.id === product.id
                                 ? {
                                     ...item,
-                                    quantity: item.quantity + quantity, // ✅ fix
+                                    quantity: item.quantity + quantity,
                                 }
                                 : item
                         );
@@ -39,31 +39,14 @@ export const useCartStore = create(
                     );
 
                     return {
-                        cartItems: updatedCartItems, // ✅ fix key
-                        total,
-                    };
-                }),
-
-            removeCartItems: (id) =>
-                set((state) => {
-                    const updatedCartItems = state.cartItems.filter(
-                        (item) => item.id !== id
-                    );
-
-                    const total = updatedCartItems.reduce(
-                        (sum, item) => sum + item.price * item.quantity,
-                        0
-                    );
-
-                    return {
-                        cartItems: updatedCartItems, // ✅ fix key
+                        cartItems: updatedCartItems,
                         total,
                     };
                 }),
 
             clearCartItems: () =>
                 set({
-                    cartItems: [], // ✅ fix key
+                    cartItems: [],
                     total: 0,
                 }),
         }),

@@ -29,7 +29,7 @@ const ProductDescriptionSection = () => {
                     <div className={"flex justify-center items-center shrink-0"}>
                         <img src={CartIcon} alt={"cart"}/>
                     </div>
-                    <span className={"text-grey-950 text-preset-3 leading-preset-3 font-preset-3"}>Add to cart</span>
+                    <span className={"text-grey-950 text-preset-3 leading-preset-3"}>Add to cart</span>
                 </Button>
             </div>
         </div>
