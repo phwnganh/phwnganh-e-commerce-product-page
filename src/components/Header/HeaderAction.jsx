@@ -16,7 +16,9 @@ const HeaderAction = () => {
                 <button type={"button"} className={"flex justify-center items-center shrink-0"}>
                     <img src={CartIcon} alt={"cart-icon"}/>
                 </button>
-                <div className={"absolute -top-1.5 -right-1.5 w-5 h-3 bg-orange-500 text-xs flex justify-center items-center rounded-6 text-white font-bold px-2"}>{totalQuantity}</div>
+                {totalQuantity > 0 &&
+                    <div className={"absolute -top-1.5 -right-1.5 w-5 h-3 bg-orange-500 text-xs flex justify-center items-center rounded-6 text-white font-bold px-2"}>{totalQuantity}</div>
+                }
             </div>
 
             <div className={"relative"}>
