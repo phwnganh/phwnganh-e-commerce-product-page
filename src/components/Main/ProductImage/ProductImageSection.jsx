@@ -55,7 +55,7 @@ const ProductImageSection = ({products}) => {
     return (
         <div className={"flex flex-col gap-8"}>
             <div className={"relative"}>
-                <button type={"button"} onClick={handleOpenProductImageDetail}>
+                <button type={"button"} aria-label={"open to see bigger product image"} onClick={handleOpenProductImageDetail}>
                 <img src={productImage.img} alt={productImage.title} className={"rounded-5 w-full"}/>
                 </button>
                 <div className={"absolute inset-0 flex items-center md:hidden justify-between px-4"}>
