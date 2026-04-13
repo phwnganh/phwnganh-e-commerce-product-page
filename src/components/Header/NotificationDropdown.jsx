@@ -4,7 +4,7 @@ import Button from "../uis/Button.jsx";
 const NotificationDropdown = () => {
     const {cartItems, total, clearCartItems} = useCartStore()
     return (
-        <div className={"absolute z-50 -right-1/2 top-full mt-2 py-6 rounded-10 w-90 max-w-[90vw] border border-amber-300 bg-white"}>
+        <div className={"absolute z-50 -right-1/2 top-full mt-2 py-6 rounded-10 w-90 max-w-[90vw] shadow-[0px_20px_50px_-20px_#1D2026] bg-white"}>
             <div className={"flex flex-col gap-6"}>
                 <h1 className={"text-preset-3 leading-preset-3 font-preset-3 px-3"}>Cart</h1>
                 <hr className={"text-grey-100"}/>
