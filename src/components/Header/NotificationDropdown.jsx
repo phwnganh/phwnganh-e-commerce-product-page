@@ -16,12 +16,12 @@ const NotificationDropdown = () => {
                                     <img src={item.image} alt={item.title} className={"rounded-sm w-12.5 h-12.5 "}/>
                                     <div className={"flex flex-col"}>
                                         <p className={"text-preset-3 leading-preset-3 text-grey-500"}>{item.title}</p>
-                                        <div className={"flex gap-2"}>
+                                        <div aria-label={"see cart item information"} aria-labelledby={"total"}  className={"flex gap-2"}>
                                             <p className={"text-preset-3 leading-preset-3 text-grey-500"}>${item.price}.00 x {item.quantity}</p>
-                                            <span className={"text-preset-3 leading-preset-3 text-grey-950 font-preset-3"}>${total}.00</span>
+                                            <span id={"total"} className={"text-preset-3 leading-preset-3 text-grey-950 font-preset-3"}>${total}.00</span>
                                         </div>
                                     </div>
-                                    <button type={"button"} onClick={clearCartItems} className={"flex justify-center items-center w-3 h-3 shrink-0"}>
+                                    <button type={"button"} aria-label={"remove item from cart"} onClick={clearCartItems} className={"flex justify-center items-center w-3 h-3 shrink-0"}>
                                         <img src={deleteIcon} alt={"delete"}/>
                                     </button>
                                 </div>
